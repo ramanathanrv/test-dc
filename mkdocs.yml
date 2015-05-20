@@ -4,4 +4,10 @@ pages:
     - ['account.md', 'Getting Started', 'Setup JusPay Account']
     - ['order.md', 'Integration', 'Order creation']
     - ['iframe.md', 'Integration', 'Pay using iFrame']
-theme: readthedocs
+    - ['javascript.md', 'Integration', 'Javascript integration']
+theme: 'readthedocs'
+include_nav: True
+include_next_prev: False
+include_search: true
+use_directory_urls: false
+copyright: Copyright &copy; 2015, <a href="https://www.juspay.in/">JusPay</a>.

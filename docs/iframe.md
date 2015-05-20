@@ -1,6 +1,6 @@
 **Checkout using Embedded iFrame**
 
-# Create order
+### Create order
 
 To collect payment from a customer, you first need to create an `order` with Juspay. Order encapsulates all the information that is required for a payment. An `order` object to Juspay is similar to what a "shopping_cart" to an e­-commerce website is.
 
@@ -13,9 +13,9 @@ Important parameters to be passed while creating the order:
     * Make sure that this url is clean and starts with `http`/`https`
     * The url must not contain any query parameters
 
-# Embedding the iFrame
+### Embedding the iFrame
 
-Once you have create an `order` and setup the `order_id`, the next step is to render the payment form. For doing this, include the following iFrame in your checkout page.
+Once you have create an `order` and know the `order_id`, the next step is to render the payment form. For doing this, include the following iFrame in your checkout page.
 
     <iframe src="https://api.juspay.in/merchant/ipay?order_id=$order_id&merchant_id=$merchant_id" 
     width="630" height="400" 
@@ -27,7 +27,7 @@ Please note:
 * Substitute `$order_id` with the `order_id` that you created in previous step
 * Substitute `$merchant_id` with your `merchant_id` 
 
-**Mobile optimized form**
+### Mobile optimized form
 
 Pass an extra parameter to the URL for rendering mobile optimized form: `&mobile=true`. Please see the code below:
 
@@ -36,3 +36,10 @@ Pass an extra parameter to the URL for rendering mobile optimized form: `&mobile
     style="border: 1px solid #CCC;padding: 20px;height: auto;min-height: 300px;">
     </iframe>
 
+This will render a mobile responsive form with all the functionalities included. 
+
+**Note**: The mobile optimized checkout experience will use the redirect mode to do the authentication. 
+
+### PCI Compliance
+
+iFrame based integration offers the easiest path to PCI Compliance. Since iFrame is as good as a separate browser window, your website is completely shielded away from getting any sensitive card information. You can become PCI Compliant by simply filling up the PCI DSS [SAQ-A questionnaire](https://www.pcisecuritystandards.org/documents/SAQ_A_v3-1.docx). 
