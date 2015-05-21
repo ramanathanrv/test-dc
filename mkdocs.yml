@@ -5,6 +5,10 @@ pages:
     - ['order.md', 'Integration', 'Order creation']
     - ['iframe.md', 'Integration', 'Pay using iFrame']
     - ['javascript.md', 'Integration', 'Javascript integration']
+    - ['response.md', 'Integration', 'Payment Response']
+    - ['choice.md', 'Integration', 'iFrame vs Javascript']
+    - ['pg.md', 'Gateways & Aggregators']
+    - ['support.md', 'More', 'Support & Contact']
 theme: 'readthedocs'
 include_nav: True
 include_next_prev: False

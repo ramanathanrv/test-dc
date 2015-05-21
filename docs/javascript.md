@@ -1,5 +1,7 @@
 **Checkout using Javascript**
 
+This mode of integration is alternative to iFrame based integration. While the iFrame based integration lets you easily get to the market, javascript based integration gives you the ultimate flexibility to define the checkout experience for your customer.  
+
 ### Create order
 
 To collect payment from a customer, you first need to create an `order` with Juspay. Order encapsulates all the information that is required for a payment. An `order` object to Juspay is similar to what a "shopping_cart" to an e­-commerce website is.
@@ -9,7 +11,7 @@ Important parameters to be passed while creating the order:
 * customer_id
     * All the cards stored for `customer_id` will be rendered in the form
 * return_url
-    * The customer will be redirected to this url, once the payment is complete
+    * If you choose the `redirect` based flow, the customer will be redirected to this url, once the payment is complete
     * Make sure that this url is clean and starts with `http`/`https`
     * The url must not contain any query parameters
 
@@ -57,13 +59,13 @@ Besides the usual fields, there are some Juspay specific fields which will enabl
 
 ### Redirect or Popup?
 
-Authentication can be performed either via a **popup** or using the traditional **redirection based flow**. In the former, a separate window opens up to conduct the authentication. This popup is closed as soon as the payment is complete.
+Authentication can be performed either via a **popup** or using the traditional **redirection based flow**. In the former, a separate window opens up to conduct the authentication. This popup is closed as soon as the payment is complete. You can control this choice by passing the appropriate value in `redirect` element.
 
 In the code snippet above showing `Juspay.Setup`, there are two handlers `success_handler` and `error_handler`. If the payment is successful, then success_handler is invoked. If the payment failed, then `error_handler` will be invoked.
 
-### Payment Response in Mobile
+### Redirect Flow
 
-For mobile, redirection flow is chosen by default. You cannot change this. So, you must always ensure that you have coded the case to handle the **redirection flow** as well.  
+For mobile, redirection flow is chosen by default. You cannot change this. So, you **must always** ensure that you have coded the case to handle the **redirection flow** as well. 
 
 
 ### Card Form Validation
@@ -96,4 +98,3 @@ Binding to `Juspay.Setup` is same as above. To handle multiple stored cards, you
 ### PCI Compliance
 
 When using Javascript for checkout, since there is a possibility that the card information could flow to the merchant's servers, the PCI Compliance scope is higher than that of iFrame based integration. You can become PCI Compliant by completing the PCI DSS [SAQ-A EP questionnaire](https://www.pcisecuritystandards.org/documents/SAQ_A-EP_v3.pdf). Please note that this is only applicable for **e-commerce** merchants. For everyone else, filling up the PCI DSS [SAQ-A questionnaire](https://www.pcisecuritystandards.org/documents/SAQ_A_v3-1.docx) would suffice. 
- 

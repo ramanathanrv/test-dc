@@ -32,7 +32,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> JusPay Express Checkout Docs</a>
+        <a href="../index.html" class="icon icon-home"> JusPay Express Checkout Docs</a>
         
       </div>
 
@@ -43,12 +43,12 @@
             <span>Getting Started</span>
             
                 <li class="toctree-l2 ">
-                    <a class="" href="..">Introduction</a>
+                    <a class="" href="../index.html">Introduction</a>
                     
                 </li>
             
                 <li class="toctree-l2 ">
-                    <a class="" href="../account/">Setup JusPay Account</a>
+                    <a class="" href="../account/index.html">Setup JusPay Account</a>
                     
                 </li>
             
@@ -59,12 +59,12 @@
             <span>Integration</span>
             
                 <li class="toctree-l2 ">
-                    <a class="" href="../order/">Order creation</a>
+                    <a class="" href="../order/index.html">Order creation</a>
                     
                 </li>
             
                 <li class="toctree-l2 current">
-                    <a class="current" href="./">Pay using iFrame</a>
+                    <a class="current" href="index.html">Pay using iFrame</a>
                     
                         <ul>
                         
@@ -74,7 +74,18 @@
                             <li class="toctree-l3"><a href="#embedding-the-iframe">Embedding the iFrame</a></li>
                             
                         
+                            <li class="toctree-l3"><a href="#mobile-optimized-form">Mobile optimized form</a></li>
+                            
+                        
+                            <li class="toctree-l3"><a href="#pci-compliance">PCI Compliance</a></li>
+                            
+                        
                         </ul>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../javascript/index.html">Javascript integration</a>
                     
                 </li>
             
@@ -92,7 +103,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">JusPay Express Checkout Docs</a>
+        <a href="../index.html">JusPay Express Checkout Docs</a>
       </nav>
 
       
@@ -100,7 +111,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
+    <li><a href="../index.html">Docs</a> &raquo;</li>
     
       
         <li>Integration &raquo;</li>
@@ -116,7 +127,7 @@
           <div role="main">
             <div class="section">
               <p><strong>Checkout using Embedded iFrame</strong></p>
-<h1 id="create-order">Create order</h1>
+<h3 id="create-order">Create order</h3>
 <p>To collect payment from a customer, you first need to create an <code>order</code> with Juspay. Order encapsulates all the information that is required for a payment. An <code>order</code> object to Juspay is similar to what a "shopping_cart" to an e­-commerce website is.</p>
 <p>Important parameters to be passed while creating the order:</p>
 <ul>
@@ -131,8 +142,8 @@
 </ul>
 </li>
 </ul>
-<h1 id="embedding-the-iframe">Embedding the iFrame</h1>
-<p>Once you have create an <code>order</code> and setup the <code>order_id</code>, the next step is to render the payment form. For doing this, include the following iFrame in your checkout page.</p>
+<h3 id="embedding-the-iframe">Embedding the iFrame</h3>
+<p>Once you have create an <code>order</code> and know the <code>order_id</code>, the next step is to render the payment form. For doing this, include the following iFrame in your checkout page.</p>
 <pre><code>&lt;iframe src="https://api.juspay.in/merchant/ipay?order_id=$order_id&amp;merchant_id=$merchant_id" 
 width="630" height="400" 
 style="border: 1px solid #CCC;padding: 20px;height: auto;min-height: 300px;"&gt;
@@ -143,21 +154,27 @@ style="border: 1px solid #CCC;padding: 20px;height: auto;min-height: 300px;"&gt;
 <li>Substitute <code>$order_id</code> with the <code>order_id</code> that you created in previous step</li>
 <li>Substitute <code>$merchant_id</code> with your <code>merchant_id</code> </li>
 </ul>
-<p><strong>Mobile optimized form</strong></p>
+<h3 id="mobile-optimized-form">Mobile optimized form</h3>
 <p>Pass an extra parameter to the URL for rendering mobile optimized form: <code>&amp;mobile=true</code>. Please see the code below:</p>
 <pre><code>&lt;iframe src="https://api.juspay.in/merchant/ipay?order_id=$order_id&amp;merchant_id=$merchant_id&amp;mobile=true" 
 width="630" height="400" 
 style="border: 1px solid #CCC;padding: 20px;height: auto;min-height: 300px;"&gt;
 &lt;/iframe&gt;
 </code></pre>
+<p>This will render a mobile responsive form with all the functionalities included. </p>
+<p><strong>Note</strong>: The mobile optimized checkout experience will use the redirect mode to do the authentication. </p>
+<h3 id="pci-compliance">PCI Compliance</h3>
+<p>iFrame based integration offers the easiest path to PCI Compliance. Since iFrame is as good as a separate browser window, your website is completely shielded away from getting any sensitive card information. You can become PCI Compliant by simply filling up the PCI DSS <a href="https://www.pcisecuritystandards.org/documents/SAQ_A_v3-1.docx">SAQ-A questionnaire</a>. </p>
             </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../javascript/index.html" class="btn btn-neutral float-right" title="Javascript integration"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../order/" class="btn btn-neutral" title="Order creation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href="../order/index.html" class="btn btn-neutral" title="Order creation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -183,14 +200,14 @@ style="border: 1px solid #CCC;padding: 20px;height: auto;min-height: 300px;"&gt;
 <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
         
-      <span><a href="../order/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      <span style="margin-left: 15px"><a href="" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../order/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="../javascript/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
     </span>
 </div>
 
 <!--
 MkDocs version  : 0.12.2
-Docs Build Date : 2015-05-19 15:32:17.732984
+Docs Build Date : 2015-05-20 06:52:47.100097
 -->
 </body>
 </html>

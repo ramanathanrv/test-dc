@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Javascript integration - JusPay Express Checkout Docs</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="icon icon-home"> JusPay Express Checkout Docs</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <ul class="current">
+    
+        
+            <span>Getting Started</span>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../index.html">Introduction</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../account/index.html">Setup JusPay Account</a>
+                    
+                </li>
+            
+        
+
+    
+        
+            <span>Integration</span>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../order/index.html">Order creation</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../iframe/index.html">Pay using iFrame</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 current">
+                    <a class="current" href="index.html">Javascript integration</a>
+                    
+                        <ul>
+                        
+                            <li class="toctree-l3"><a href="#create-order">Create order</a></li>
+                            
+                        
+                            <li class="toctree-l3"><a href="#include-payjs">Include pay.js</a></li>
+                            
+                        
+                            <li class="toctree-l3"><a href="#implementing-checkout">Implementing Checkout</a></li>
+                            
+                        
+                            <li class="toctree-l3"><a href="#redirect-or-popup">Redirect or Popup?</a></li>
+                            
+                        
+                            <li class="toctree-l3"><a href="#payment-response-in-mobile">Payment Response in Mobile</a></li>
+                            
+                        
+                            <li class="toctree-l3"><a href="#card-form-validation">Card Form Validation</a></li>
+                            
+                        
+                            <li class="toctree-l3"><a href="#stored-cards">Stored cards</a></li>
+                            
+                        
+                            <li class="toctree-l3"><a href="#pci-compliance">PCI Compliance</a></li>
+                            
+                        
+                        </ul>
+                    
+                </li>
+            
+        
+
+    
+</ul>
+
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">JusPay Express Checkout Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      
+        <li>Integration &raquo;</li>
+      
+    
+    <li>Javascript integration</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              <p><strong>Checkout using Javascript</strong></p>
+<h3 id="create-order">Create order</h3>
+<p>To collect payment from a customer, you first need to create an <code>order</code> with Juspay. Order encapsulates all the information that is required for a payment. An <code>order</code> object to Juspay is similar to what a "shopping_cart" to an e­-commerce website is.</p>
+<p>Important parameters to be passed while creating the order:</p>
+<ul>
+<li>customer_id<ul>
+<li>All the cards stored for <code>customer_id</code> will be rendered in the form</li>
+</ul>
+</li>
+<li>return_url<ul>
+<li>The customer will be redirected to this url, once the payment is complete</li>
+<li>Make sure that this url is clean and starts with <code>http</code>/<code>https</code></li>
+<li>The url must not contain any query parameters</li>
+</ul>
+</li>
+</ul>
+<h3 id="include-payjs">Include pay.js</h3>
+<p>In your checkout page, please include <a href="https://api.juspay.in/pay.js">pay.js</a>. This script takes care of completing the checkout process on your behalf. <code>pay.js</code> depends on <strong>jQuery</strong> library (any version after 1.4 is acceptable). </p>
+<pre><code>&lt;script type="text/javascript" 
+    src="https://api.juspay.in/pay.js"&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="implementing-checkout">Implementing Checkout</h3>
+<p>Before we get to the details, let's take a quick look at a typical payment form. This is the part you can build with your web framework, or by hand in HTML — however you're used to building forms on the web.</p>
+<pre><code>&lt;form class="juspay_inline_form" id="payment_form"&gt;
+    &lt;input type="hidden" class="merchant_id" value="guest"&gt;
+    &lt;input type="hidden" class="order_id" value="guest_order"/&gt;
+    &lt;input type="text" class="card_number" placeholder="Card number"&gt;
+    &lt;input type="text" class="name_on_card" placeholder="Cardholder name"&gt;
+    &lt;input type="text" class="card_exp_month" placeholder="MM"&gt; - &lt;input type="text" class="card_exp_year" placeholder="YYYY"&gt;
+    &lt;input type="text" class="security_code" placeholder="CVV" &gt;
+    &lt;input type="checkbox"  class="juspay_locker_save"&gt; Save card information
+    &lt;button type="submit" class="make_payment"&gt;Pay&lt;/button&gt;
+    &lt;input type="hidden" class="redirect" value="false"&gt;
+&lt;/form&gt;
+</code></pre>
+<p>Besides the usual fields, there are some Juspay specific fields which will enable us to process the payment when the form is submitted. </p>
+<ul>
+<li><code>order_id</code> field represents the order_id of the <code>order</code> object that you have just created. </li>
+<li><code>merchant_id</code> helps us identify you. Changing this would mean that we credit the payment to someone else's account. So, please be careful with this field! </li>
+<li><code>juspay_locker_save</code> tells us whether we need to store this card after the payment is successful.</li>
+<li>If <code>redirect</code> is <strong>true</strong>, then we will choose the redirection flow for authentication. Otherwise, a popup window will be used for authentication. By default, popup window will be chosen for authentication.</li>
+</ul>
+<p><code>pay.js</code> listens to the form submit event and transports the card information safely to process it for payment. This is accomplished by the following snippet.</p>
+<pre><code>&lt;script type="text/javascript"&gt;
+Juspay.Setup({
+    payment_form: "#payment_form",
+    success_handler: function(status) {},
+    error_handler: function(error_code, error_message, bank_error_code, 
+        bank_error_message, gateway_id) {}
+})
+&lt;/script&gt;
+</code></pre>
+<h3 id="redirect-or-popup">Redirect or Popup?</h3>
+<p>Authentication can be performed either via a <strong>popup</strong> or using the traditional <strong>redirection based flow</strong>. In the former, a separate window opens up to conduct the authentication. This popup is closed as soon as the payment is complete.</p>
+<p>In the code snippet above showing <code>Juspay.Setup</code>, there are two handlers <code>success_handler</code> and <code>error_handler</code>. If the payment is successful, then success_handler is invoked. If the payment failed, then <code>error_handler</code> will be invoked.</p>
+<h3 id="payment-response-in-mobile">Payment Response in Mobile</h3>
+<p>For mobile, redirection flow is chosen by default. You cannot change this. So, you must always ensure that you have coded the case to handle the <strong>redirection flow</strong> as well.  </p>
+<h3 id="card-form-validation">Card Form Validation</h3>
+<p>Validation must be implemented by you. Please ensure the following:</p>
+<ul>
+<li>Card Number must be validated using Luhn Algorithm</li>
+<li>Expiry date must be in future</li>
+<li>CVV (security_code) must be three digits for visa,mastercard and 4 digits for American Express</li>
+<li>Cardholder name must be alphabets &amp; space only</li>
+</ul>
+<h3 id="stored-cards">Stored cards</h3>
+<p>To checkout using stored card, the form must contain the <code>card_token</code> element and the <code>security_code</code> element. Please see the sample code below.</p>
+<pre><code>&lt;form class="juspay_express_form" id="payment_form"&gt;
+    &lt;input type="hidden" class="card_token" value="54eb18a0-c7ca-46a3-b122-448d93a3698a"/&gt;
+    &lt;input type="hidden" class="merchant_id" value="guest"&gt;
+    &lt;input type="hidden" class="order_id" value="guest_order"/&gt;
+    &lt;label&gt;
+        &lt;p&gt;5264-XXXXXXXX-3394&lt;/p&gt;
+        &lt;p&gt;Expires: 10/20&lt;/p&gt;
+    &lt;/label&gt;
+    &lt;input type="text" class="security_code" placeholder="CVV" &gt;
+    &lt;button type="submit" class="make_payment"&gt;Pay&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<p>Binding to <code>Juspay.Setup</code> is same as above. To handle multiple stored cards, you can create separate forms with different identifiers and bind them individually. It is also possible to handle using a single form.</p>
+<h3 id="pci-compliance">PCI Compliance</h3>
+<p>When using Javascript for checkout, since there is a possibility that the card information could flow to the merchant's servers, the PCI Compliance scope is higher than that of iFrame based integration. You can become PCI Compliant by completing the PCI DSS <a href="https://www.pcisecuritystandards.org/documents/SAQ_A-EP_v3.pdf">SAQ-A EP questionnaire</a>. Please note that this is only applicable for <strong>e-commerce</strong> merchants. For everyone else, filling up the PCI DSS <a href="https://www.pcisecuritystandards.org/documents/SAQ_A_v3-1.docx">SAQ-A questionnaire</a> would suffice. </p>
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../iframe/index.html" class="btn btn-neutral" title="Pay using iFrame"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        
+      <span><a href="../iframe/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="" style="color: #fcfcfc">Next &raquo;</a></span>
+    </span>
+</div>
+
+<!--
+MkDocs version  : 0.12.2
+Docs Build Date : 2015-05-20 06:52:47.111276
+-->
+</body>
+</html>
