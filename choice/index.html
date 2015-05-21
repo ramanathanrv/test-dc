@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Setup JusPay Account - JusPay Express Checkout Docs</title>
+  <title>iFrame vs Javascript - JusPay Express Checkout Docs</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -47,12 +47,8 @@
                     
                 </li>
             
-                <li class="toctree-l2 current">
-                    <a class="current" href="index.html">Setup JusPay Account</a>
-                    
-                        <ul>
-                        
-                        </ul>
+                <li class="toctree-l2 ">
+                    <a class="" href="../account/index.html">Setup JusPay Account</a>
                     
                 </li>
             
@@ -82,8 +78,12 @@
                     
                 </li>
             
-                <li class="toctree-l2 ">
-                    <a class="" href="../choice/index.html">iFrame vs Javascript</a>
+                <li class="toctree-l2 current">
+                    <a class="current" href="index.html">iFrame vs Javascript</a>
+                    
+                        <ul>
+                        
+                        </ul>
                     
                 </li>
             
@@ -131,10 +131,10 @@
     <li><a href="../index.html">Docs</a> &raquo;</li>
     
       
-        <li>Getting Started &raquo;</li>
+        <li>Integration &raquo;</li>
       
     
-    <li>Setup JusPay Account</li>
+    <li>iFrame vs Javascript</li>
       <li class="wy-breadcrumbs-aside">
         
       </li>
@@ -143,26 +143,84 @@
 </div>
           <div role="main">
             <div class="section">
-              <p><strong>Create your Juspay Merchant Account</strong></p>
-<p>Before you can do anything with Juspay, you will have to create a Merchant Account with us. If you have not done this already, please proceed to Merchant Portal and create an account for you. Its free and doesn't require any credit card.</p>
-<p><strong>Merchant Id</strong></p>
-<p>Merchant Id is the login username that you have chosen for your account. Please choose this wisely as this will be your primary account with Juspay. Your merchant id will tag along in all the payment transactions that will be processed by us. </p>
-<p><strong>Recommended: </strong> Alpha Numeric characters with "_" as separator. Example: <strong>shop_india</strong></p>
-<p><strong>API Key</strong></p>
-<p>An api_key is a secret information that helps us to authenticate all your requests to our servers. After signing up successfully and setting up your merchant account, you can copy the api_key from <a href="https://merchant.juspay.in/settings/api-keys">here</a>. </p>
-<blockquote>
-<p>The api_key is a 32 character alpha numeric string like this: <strong>782CB4B3F5B84BDDB3C9EAFA6A134DC3</strong></p>
-</blockquote>
+              <p><strong>iFrame vs Javascript</strong></p>
+<p>When is iFrame better than Javascript?</p>
+<ul>
+<li>Complete the integration in 2 days flat</li>
+<li>Checkout form is always improving and heavily optimized</li>
+<li>Mobile web experience in Android/iOS suffices</li>
+</ul>
+<p>When is Javascript better than iFrame?</p>
+<ul>
+<li>You wish to completely customize the checkout form (development time is higher)</li>
+<li>Give native experience to your customers in Android/iOS</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="left">iFrame</th>
+<th align="left">Javascript</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Development Time</td>
+<td align="left"><strong>2 days</strong></td>
+<td align="left"><strong>2 weeks</strong></td>
+</tr>
+<tr>
+<td>Form factors supported</td>
+<td align="left">Desktop &amp; Mobile</td>
+<td align="left">Requires coding</td>
+</tr>
+<tr>
+<td>Ability to customize the checkout form</td>
+<td align="left">Medium (styles only)</td>
+<td align="left">Very high (you own the form)</td>
+</tr>
+<tr>
+<td>Form validation</td>
+<td align="left">Built-in</td>
+<td align="left">Requires coding</td>
+</tr>
+<tr>
+<td>Intelligent <strong>Maestro</strong> handling <br><br> 19 digit &amp; 16 digits</td>
+<td align="left">Built-in</td>
+<td align="left">Requires coding</td>
+</tr>
+<tr>
+<td>Switch between stored cards &amp; new card</td>
+<td align="left">Built-in</td>
+<td align="left">Requires coding</td>
+</tr>
+<tr>
+<td>Android &amp; iOS experience</td>
+<td align="left">Mobile Web</td>
+<td align="left">Native</td>
+</tr>
+<tr>
+<td>Promotions: Card based Cash back</td>
+<td align="left"><strong>Rule based support</strong></td>
+<td align="left"><strong>Yes</strong> (build your own)</td>
+</tr>
+<tr>
+<td>Promotions: Card based Discounts</td>
+<td align="left"><strong>No support</strong></td>
+<td align="left"><strong>Yes</strong> (build your own)</td>
+</tr>
+</tbody>
+</table>
             </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../order/index.html" class="btn btn-neutral float-right" title="Order creation"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../pg/index.html" class="btn btn-neutral float-right" title="Gateways & Aggregators"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../response/index.html" class="btn btn-neutral" title="Payment Response"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -188,14 +246,14 @@
 <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
         
-      <span><a href="../index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      <span style="margin-left: 15px"><a href="../order/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../response/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="../pg/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
     </span>
 </div>
 
 <!--
 MkDocs version  : 0.12.2
-Docs Build Date : 2015-05-21 15:52:41.634325
+Docs Build Date : 2015-05-21 15:52:41.669194
 -->
 </body>
 </html>

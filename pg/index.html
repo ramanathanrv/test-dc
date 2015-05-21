@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Gateways & Aggregators - JusPay Express Checkout Docs</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="icon icon-home"> JusPay Express Checkout Docs</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <ul class="current">
+    
+        
+            <span>Getting Started</span>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../index.html">Introduction</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../account/index.html">Setup JusPay Account</a>
+                    
+                </li>
+            
+        
+
+    
+        
+            <span>Integration</span>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../order/index.html">Order creation</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../iframe/index.html">Pay using iFrame</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../javascript/index.html">Javascript integration</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../response/index.html">Payment Response</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../choice/index.html">iFrame vs Javascript</a>
+                    
+                </li>
+            
+        
+
+    
+        
+            <li class="toctree-l1 current">
+                <a class="current" href="index.html">Gateways & Aggregators</a>
+                
+                    <ul>
+                    
+                        <li class="toctree-l3"><a href="#hdfc">HDFC</a></li>
+                        
+                    
+                        <li class="toctree-l3"><a href="#icici">ICICI</a></li>
+                        
+                    
+                        <li class="toctree-l3"><a href="#axis">Axis</a></li>
+                        
+                    
+                        <li class="toctree-l3"><a href="#payu">PayU</a></li>
+                        
+                    
+                        <li class="toctree-l3"><a href="#ccavenue">CCAvenue</a></li>
+                        
+                    
+                        <li class="toctree-l3"><a href="#ebs">EBS</a></li>
+                        
+                    
+                        <li class="toctree-l3"><a href="#citrus">Citrus</a></li>
+                        
+                    
+                        <li class="toctree-l3"><a href="#atom">Atom</a></li>
+                        
+                    
+                    </ul>
+                
+            </li>
+        
+
+    
+        
+            <span>More</span>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../support/index.html">Support & Contact</a>
+                    
+                </li>
+            
+        
+
+    
+</ul>
+
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">JusPay Express Checkout Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li>Gateways & Aggregators</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              <p><strong>Gateways supported</strong></p>
+<p>We support both <strong>bank gateways</strong> and <strong>aggregators</strong>.</p>
+<ul>
+<li>Bank Gateways<ul>
+<li>HDFC</li>
+<li>ICICI</li>
+<li>AXIS</li>
+</ul>
+</li>
+<li>Aggregators<ul>
+<li>PayU</li>
+<li>Citrus</li>
+<li>CCAvenue</li>
+<li>EBS</li>
+<li>Atom</li>
+</ul>
+</li>
+</ul>
+<h3 id="hdfc">HDFC</h3>
+<p>HDFC Bank would give you SSL Gateway by default. In order to use Express Checkout with HDFC, the SSL account must be converted to a TranPortal account. This entails the following:</p>
+<ol>
+<li>Write to your Relationship Manager in this regard</li>
+<li>Copy us in the email and we will share the required documentation from our side</li>
+<li>HDFC would insist on a <strong>Tripartite Agreement</strong>. This is similar to the Merchant Services Agreement that you signed with HDFC. Three copies of this agreement must be executed. Any changes required in this agreement would take a long time for consensus. So, we recommend that you sign this agreement as it is.</li>
+<li>Post signing this, HDFC PG would convert your account to TranPortal.</li>
+<li>Configure the TranPortal ID &amp; TranPortal password in the Merchant Portal of JusPay and you are ready to start driving transactions.</li>
+</ol>
+<p>Time taken: 2 - 4 weeks</p>
+<h3 id="icici">ICICI</h3>
+<p>SSL PG account of ICICI must be converted to MOTO account. The following steps could help achieve this:</p>
+<ol>
+<li>Write to your Relationship Manager in this regard</li>
+<li>Copy us in the email and we will share the required documentation from our side</li>
+<li>ICICI will create a MOTO account will share the access credentials. The following will be required to commence integration: <ul>
+<li>MID</li>
+<li>MPI ID</li>
+<li>Key (can be obtained by logging in to ICICI console)</li>
+</ul>
+</li>
+<li>Once you have all these three, configure this PG account in JusPay Merchant Portal for your merchant account</li>
+<li>3D Secure Response URL must be updated to <code>https://api.juspay.in/payment/second-factor-response</code>. Place a request to ICICI PG Helpdesk for this.</li>
+<li>Once the above step is done, you will have to run a test transaction using your credit/debit card. This transaction will fail with an error message <strong>'No suitable acquirer found'</strong>. </li>
+<li>Contact PG Helpdesk again and share with them the transaction details and the response. ICICI PG will confirm that the integration is successful and they will go on to make your account LIVE.</li>
+</ol>
+<p>Time taken: 1 - 3 weeks</p>
+<h3 id="axis">Axis</h3>
+<p>SSL PG account of AXIS must be converted to VPC account. The following steps could help achieve this:</p>
+<ol>
+<li>Write to your Relationship Manager asking to upgrade your account to VPC Enabled. Mention that you are using JusPay as the technology company to handle sensitive card data.</li>
+<li>Copy us in the email and we will share the required documentation from our side</li>
+<li>Axis will enable VPC for your account</li>
+<li>Once you have the confirmation from Axis, configure the Axis PG credentials in JusPay Merchant Portal for your merchant account</li>
+<li>Do a transaction with real credit/debit card to ensure that this feature is working fine. If you directly land on the 3D secure page, then the account has been upgraded</li>
+</ol>
+<p>Time taken: 1 - 3 weeks</p>
+<h3 id="payu">PayU</h3>
+<ol>
+<li>The PG account must have <strong>Seamless</strong> option enabled to use Express Checkout</li>
+<li>Write to your Relationship Manager asking to upgrade your account to Seamless Enabled. Mention that you are using JusPay as the technology company to handle sensitive card data.</li>
+<li>Copy us in the email and we will share the required documentation from our side</li>
+<li>PayU will enable Seamless for your account</li>
+<li>Once you have the confirmation from PayU, configure the PayU account details in JusPay Merchant Portal for your merchant account. The following are the required details:<ul>
+<li>PayU merchant key</li>
+<li>PayU salt</li>
+</ul>
+</li>
+<li>Do a transaction with real credit/debit card to ensure that this feature is working fine. If you directly land on the 3D secure page, then the account has been upgraded</li>
+<li>You should be able to see the above transaction in your PayU dashboard too</li>
+</ol>
+<p>Time taken: 2 - 3 days</p>
+<h3 id="ccavenue">CCAvenue</h3>
+<p>Contact us</p>
+<h3 id="ebs">EBS</h3>
+<p>Contact us</p>
+<h3 id="citrus">Citrus</h3>
+<p>Contact us</p>
+<h3 id="atom">Atom</h3>
+<p>Contact us</p>
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../support/index.html" class="btn btn-neutral float-right" title="Support & Contact"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../choice/index.html" class="btn btn-neutral" title="iFrame vs Javascript"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        
+      <span><a href="../choice/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="../support/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    </span>
+</div>
+
+<!--
+MkDocs version  : 0.12.2
+Docs Build Date : 2015-05-21 15:52:41.680817
+-->
+</body>
+</html>
