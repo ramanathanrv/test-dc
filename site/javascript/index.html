@@ -85,7 +85,7 @@
                             <li class="toctree-l3"><a href="#redirect-or-popup">Redirect or Popup?</a></li>
                             
                         
-                            <li class="toctree-l3"><a href="#payment-response-in-mobile">Payment Response in Mobile</a></li>
+                            <li class="toctree-l3"><a href="#redirect-flow">Redirect Flow</a></li>
                             
                         
                             <li class="toctree-l3"><a href="#card-form-validation">Card Form Validation</a></li>
@@ -98,6 +98,35 @@
                             
                         
                         </ul>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../response/index.html">Payment Response</a>
+                    
+                </li>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../choice/index.html">iFrame vs Javascript</a>
+                    
+                </li>
+            
+        
+
+    
+        
+            <li class="toctree-l1 ">
+                <a class="" href="../pg/index.html">Gateways & Aggregators</a>
+                
+            </li>
+        
+
+    
+        
+            <span>More</span>
+            
+                <li class="toctree-l2 ">
+                    <a class="" href="../support/index.html">Support & Contact</a>
                     
                 </li>
             
@@ -139,6 +168,7 @@
           <div role="main">
             <div class="section">
               <p><strong>Checkout using Javascript</strong></p>
+<p>This mode of integration is alternative to iFrame based integration. While the iFrame based integration lets you easily get to the market, javascript based integration gives you the ultimate flexibility to define the checkout experience for your customer.  </p>
 <h3 id="create-order">Create order</h3>
 <p>To collect payment from a customer, you first need to create an <code>order</code> with Juspay. Order encapsulates all the information that is required for a payment. An <code>order</code> object to Juspay is similar to what a "shopping_cart" to an e­-commerce website is.</p>
 <p>Important parameters to be passed while creating the order:</p>
@@ -148,7 +178,7 @@
 </ul>
 </li>
 <li>return_url<ul>
-<li>The customer will be redirected to this url, once the payment is complete</li>
+<li>If you choose the <code>redirect</code> based flow, the customer will be redirected to this url, once the payment is complete</li>
 <li>Make sure that this url is clean and starts with <code>http</code>/<code>https</code></li>
 <li>The url must not contain any query parameters</li>
 </ul>
@@ -191,10 +221,10 @@ Juspay.Setup({
 &lt;/script&gt;
 </code></pre>
 <h3 id="redirect-or-popup">Redirect or Popup?</h3>
-<p>Authentication can be performed either via a <strong>popup</strong> or using the traditional <strong>redirection based flow</strong>. In the former, a separate window opens up to conduct the authentication. This popup is closed as soon as the payment is complete.</p>
+<p>Authentication can be performed either via a <strong>popup</strong> or using the traditional <strong>redirection based flow</strong>. In the former, a separate window opens up to conduct the authentication. This popup is closed as soon as the payment is complete. You can control this choice by passing the appropriate value in <code>redirect</code> element.</p>
 <p>In the code snippet above showing <code>Juspay.Setup</code>, there are two handlers <code>success_handler</code> and <code>error_handler</code>. If the payment is successful, then success_handler is invoked. If the payment failed, then <code>error_handler</code> will be invoked.</p>
-<h3 id="payment-response-in-mobile">Payment Response in Mobile</h3>
-<p>For mobile, redirection flow is chosen by default. You cannot change this. So, you must always ensure that you have coded the case to handle the <strong>redirection flow</strong> as well.  </p>
+<h3 id="redirect-flow">Redirect Flow</h3>
+<p>For mobile, redirection flow is chosen by default. You cannot change this. So, you <strong>must always</strong> ensure that you have coded the case to handle the <strong>redirection flow</strong> as well. </p>
 <h3 id="card-form-validation">Card Form Validation</h3>
 <p>Validation must be implemented by you. Please ensure the following:</p>
 <ul>
@@ -226,6 +256,8 @@ Juspay.Setup({
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../response/index.html" class="btn btn-neutral float-right" title="Payment Response"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
       
         <a href="../iframe/index.html" class="btn btn-neutral" title="Pay using iFrame"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
@@ -254,13 +286,13 @@ Juspay.Setup({
     <span class="rst-current-version" data-toggle="rst-current-version">
         
       <span><a href="../iframe/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      <span style="margin-left: 15px"><a href="" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span style="margin-left: 15px"><a href="../response/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
     </span>
 </div>
 
 <!--
 MkDocs version  : 0.12.2
-Docs Build Date : 2015-05-20 06:52:47.111276
+Docs Build Date : 2015-05-21 15:52:41.655790
 -->
 </body>
 </html>

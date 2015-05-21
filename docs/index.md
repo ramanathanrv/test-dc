@@ -28,7 +28,7 @@ Before proceeding to integration, please know the steps involved in getting appr
 
 ---
 
-## Additional Resources
+**Additional Resources**
 
 * Client Libraries
     * [Java](https://bitbucket.org/juspay/juspay_java_client)
