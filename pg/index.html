@@ -52,6 +52,11 @@
                     
                 </li>
             
+                <li class="toctree-l2 ">
+                    <a class="" href="../secret/index.html">Get your API Key</a>
+                    
+                </li>
+            
         
 
     
@@ -164,7 +169,8 @@
           <div role="main">
             <div class="section">
               <p><strong>Gateways supported</strong></p>
-<p>We support both <strong>bank gateways</strong> and <strong>aggregators</strong>.</p>
+<p>Before proceeding to integrate with JusPay, you will have to ensure that the backend PG/Aggregator that you use is ready for this. There are two kinds of payment service providers - <strong>bank gateways</strong> and <strong>aggregators</strong>. Banks like HDFC &amp; ICICI provide PG accounts to make your site accept Visa/MasterCard issued cards. Aggregators work with Banks and provide you with the ability to accept Cards &amp; NetBanking as well.</p>
+<p>We support both <strong>bank gateways</strong> and <strong>aggregators</strong>. The supported list of payment service providers are:</p>
 <ul>
 <li>Bank Gateways<ul>
 <li>HDFC</li>
@@ -181,6 +187,7 @@
 </ul>
 </li>
 </ul>
+<p>All of these service providers will provide you with an account where Card Details can only be entered in their page. Such an arrangement is to ensure that Security of the Card data is not compromised. In order to be able to use our iFrame to accept card data, these service providers will have to approve of such an integration. This requires some amount of paperwork - mostly digital in nature. Different providers approach this differently and we have tried to compile the steps involved in getting your PG account upgraded.</p>
 <h3 id="hdfc">HDFC</h3>
 <p>HDFC Bank would give you SSL Gateway by default. In order to use Express Checkout with HDFC, the SSL account must be converted to a TranPortal account. This entails the following:</p>
 <ol>
@@ -283,7 +290,7 @@
 
 <!--
 MkDocs version  : 0.12.2
-Docs Build Date : 2015-05-22 05:25:53.090886
+Docs Build Date : 2015-05-25 07:26:04.600607
 -->
 </body>
 </html>
