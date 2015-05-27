@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Setup JusPay Account - JusPay Express Checkout Docs</title>
+  <title>Payment Response - JusPay Express Checkout Docs</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -47,12 +47,8 @@
                     
                 </li>
             
-                <li class="toctree-l2 current">
-                    <a class="current" href="index.html">Setup JusPay Account</a>
-                    
-                        <ul>
-                        
-                        </ul>
+                <li class="toctree-l2 ">
+                    <a class="" href="../account/index.html">Setup JusPay Account</a>
                     
                 </li>
             
@@ -82,8 +78,15 @@
                     
                 </li>
             
-                <li class="toctree-l2 ">
-                    <a class="" href="../response/index.html">Payment Response</a>
+                <li class="toctree-l2 current">
+                    <a class="current" href="index.html">Payment Response</a>
+                    
+                        <ul>
+                        
+                            <li class="toctree-l3"><a href="#status-verification">Status Verification</a></li>
+                            
+                        
+                        </ul>
                     
                 </li>
             
@@ -136,10 +139,10 @@
     <li><a href="../index.html">Docs</a> &raquo;</li>
     
       
-        <li>Getting Started &raquo;</li>
+        <li>Integration &raquo;</li>
       
     
-    <li>Setup JusPay Account</li>
+    <li>Payment Response</li>
       <li class="wy-breadcrumbs-aside">
         
       </li>
@@ -148,26 +151,83 @@
 </div>
           <div role="main">
             <div class="section">
-              <p><strong>Create your Juspay Merchant Account</strong></p>
-<p>Before you can do anything with Juspay, you will have to create a Merchant Account with us. If you have not done this already, please proceed to Merchant Portal and create an account for you. Its free and doesn't require any credit card.</p>
-<p><strong>Merchant Id</strong></p>
-<p>Merchant Id is the login username that you have chosen for your account. Please choose this wisely as this will be your primary account with Juspay. Your merchant id will tag along in all the payment transactions that will be processed by us. </p>
-<p><strong>Recommended: </strong> Alpha Numeric characters with "_" as separator. Example: <strong>shop_india</strong></p>
-<p><strong>API Key</strong></p>
-<p>An api_key is a secret information that helps us to authenticate all your requests to our servers. After signing up successfully and setting up your merchant account, you can copy the api_key from <a href="https://merchant.juspay.in/settings/api-keys">here</a>. </p>
-<blockquote>
-<p>The api_key is a 32 character alpha numeric string like this: <strong>782CB4B3F5B84BDDB3C9EAFA6A134DC3</strong></p>
-</blockquote>
+              <p><strong>Payment Response</strong></p>
+<p>Once the payment is complete the user is redirected to the <code>return_url</code> configured by you. Following is the typical destination where the user is taken to:</p>
+<pre><code>HTTP GET https://merchant.shop.com/paymentresponse/handler?order_id=ORD1000&amp;status=CHARGED&amp;status_id=21
+</code></pre>
+<p>Please note that the parameters are sent using <strong>HTTP GET</strong>. </p>
+<p><strong>Transaction Status codes and their meaning</strong></p>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th align="center">ID</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NEW</td>
+<td align="center">10</td>
+<td align="left">Newly created order</td>
+</tr>
+<tr>
+<td>PENDING_VBV</td>
+<td align="center">23</td>
+<td align="left">Authentication is in progress</td>
+</tr>
+<tr>
+<td>CHARGED</td>
+<td align="center">21</td>
+<td align="left">Successful transaction</td>
+</tr>
+<tr>
+<td>AUTHENTICATION_FAILED</td>
+<td align="center">26</td>
+<td align="left">User did not complete authentication</td>
+</tr>
+<tr>
+<td>AUTHORIZATION_FAILED</td>
+<td align="center">27</td>
+<td align="left">User completed authentication. But bank refused the transaction</td>
+</tr>
+</tbody>
+</table>
+<p>Transaction is successful only if you receive <code>CHARGED</code> as the value in status. For all other cases, you must assume that the payment has failed.</p>
+<h3 id="status-verification">Status Verification</h3>
+<p>Since the <code>return_url</code> parameter group doesn't contain a way to check the integrity, you must always ensure that you read the status from the server using <code>/order/status</code> API explained <a href="https://apidocs.juspay.in/#api-Order-GetOrder">here</a>. <strong>Status</strong> along with many other data will be returned as part of the <code>/order/status</code> API. </p>
+<p>Failing to do status verification will result in hackers gaming your system. So, please ensure that status verification is in place before you go LIVE with us.</p>
+<p><strong>Example request</strong></p>
+<pre><code>curl -u api_key: \
+  https://api.juspay.in/order/status?order_id=wv_test_ord_110011&amp;merchant_id=skyview
+</code></pre>
+<p><strong>HTTP Response</strong></p>
+<pre><code>{
+  "merchant_id": "wv_test",
+  "order_id": "wv_test_ord_110011",
+  "customer_id": "wv_test_user@gmail.com",
+  "product_id": "",
+  "status": "CHARGED",
+  "status_id": 21,
+  "amount": 400,
+  "currency": "INR",
+  "refunded": false,
+  "amount_refunded": 0,
+  "return_url": "http://skyview./order/cc-confirm",
+  ....
+}
+</code></pre>
+<p>The above response is truncated for brevity. However, as you can see above, the <code>status</code> was received as <strong>CHARGED</strong>. This indicates that the payment was successful and so, you can proceed with the fulfillment of the order.</p>
             </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../secret/index.html" class="btn btn-neutral float-right" title="Get your API Key"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../choice/index.html" class="btn btn-neutral float-right" title="iFrame vs Javascript"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../javascript/index.html" class="btn btn-neutral" title="Javascript integration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -193,14 +253,14 @@
 <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
         
-      <span><a href="../index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      <span style="margin-left: 15px"><a href="../secret/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../javascript/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="../choice/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
     </span>
 </div>
 
 <!--
 MkDocs version  : 0.12.2
-Docs Build Date : 2015-05-27 05:04:39.705709
+Docs Build Date : 2015-05-27 05:04:39.738498
 -->
 </body>
 </html>
