@@ -2,6 +2,7 @@ site_name: JusPay Express Checkout Docs
 pages:
     - ['index.md', 'Getting Started', 'Introduction']
     - ['account.md', 'Getting Started', 'Setup JusPay Account']
+    - ['secret.md', 'Getting Started', 'Get your API Key']
     - ['order.md', 'Integration', 'Order creation']
     - ['iframe.md', 'Integration', 'Pay using iFrame']
     - ['javascript.md', 'Integration', 'Javascript integration']

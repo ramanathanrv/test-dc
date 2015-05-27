@@ -22,3 +22,8 @@ When is Javascript better than iFrame?
 | Android & iOS experience | Mobile Web | Native
 | Promotions: Card based Cash back | __Rule based support__ | __Yes__ (build your own)
 | Promotions: Card based Discounts | __No support__ | __Yes__ (build your own)
+| PCI Compliance | SAQ-A | SAQ-A EP
+
+**Swithcing from iFrame to Javascript**
+
+If you get started with iFrame and sometime in the future, would like to transition to Javascript based integration, it is completely feasible to do so. 

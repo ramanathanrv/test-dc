@@ -1,6 +1,8 @@
 **Gateways supported**
 
-We support both **bank gateways** and **aggregators**.
+Before proceeding to integrate with JusPay, you will have to ensure that the backend PG/Aggregator that you use is ready for this. There are two kinds of payment service providers - **bank gateways** and **aggregators**. Banks like HDFC & ICICI provide PG accounts to make your site accept Visa/MasterCard issued cards. Aggregators work with Banks and provide you with the ability to accept Cards & NetBanking as well.
+
+We support both **bank gateways** and **aggregators**. The supported list of payment service providers are:
 
 + Bank Gateways
     * HDFC
@@ -12,6 +14,9 @@ We support both **bank gateways** and **aggregators**.
     * CCAvenue
     * EBS
     * Atom
+
+All of these service providers will provide you with an account where Card Details can only be entered in their page. Such an arrangement is to ensure that Security of the Card data is not compromised. In order to be able to use our iFrame to accept card data, these service providers will have to approve of such an integration. This requires some amount of paperwork - mostly digital in nature. Different providers approach this differently and we have tried to compile the steps involved in getting your PG account upgraded.
+
 
 ### HDFC
 
